@@ -1,8 +1,32 @@
 const mongoose=require("mongoose");
 
-mongoose.Schema({
-    name:{
+const user = mongoose.Schema({
+    fullname:{
         type:String,
-        re 
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    image:{
+        type:String,
+        required:true
+    },
+    username:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    role:{
+        type:String,
+        enum:['Admin','Customer'],
+        default:'Customer'
     }
-})
+    
+},{timestamps:true})
+
+module.exports=mongoose.model('USer',user);
